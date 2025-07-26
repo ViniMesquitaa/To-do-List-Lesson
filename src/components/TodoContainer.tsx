@@ -76,7 +76,7 @@ export const TodoContainer = ({
           </p>
         </div>
       ) : (
-        <ul className="space-y-3">
+        <ul className="space-y-3 overflow-y-scroll max-h-50 scroll-y-custom">
           {todos.map((todo) => (
             <li
               key={todo.id}
