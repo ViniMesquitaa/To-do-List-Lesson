@@ -1,1 +1,21 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+.scroll-y-custom {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  padding-right: 5px;
+  scrollbar-color: #06b6d4 #1f2937;
+}
+
+.scroll-y-custom::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-y-custom::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+.scroll-y-custom::-webkit-scrollbar-thumb {
+  background-color: #06b6d4;
+  border-radius: 8px;
+}
