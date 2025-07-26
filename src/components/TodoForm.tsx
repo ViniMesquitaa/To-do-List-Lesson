@@ -30,7 +30,7 @@ const TodoForm = ({
         </label>
         <button
           type="submit"
-          className="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-opacity-50"
+          className="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-opacity-50 cursor-pointer"
         >
           {isEditing ? "Salvar Edição" : "Adicionar Tarefa"}
         </button>

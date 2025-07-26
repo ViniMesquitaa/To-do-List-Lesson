@@ -59,6 +59,13 @@ const TodoPage = () => {
     }
   };
 
+  const handleDeleteAll = () => {
+    setTodos([]);
+    localStorage.removeItem("todos");
+    setEditingId(null);
+    setTitle("");
+  };
+
   const handleEdit = (id: number) => {
     const todoToEdit = todos.find((todo) => todo.id === id);
     if (!todoToEdit) return;
@@ -67,7 +74,7 @@ const TodoPage = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-gray-900 to-gray-800 p-4 flex items-center justify-center">
+    <div className="min-h-screen w-full bg-gradient-to-br from-gray-900 to-gray-800 p-4 flex items-center justify-center flex-col">
       <div className="w-full max-w-2xl">
         <TodoContainer
           todos={todos}
@@ -79,6 +86,11 @@ const TodoPage = () => {
           handleEdit={handleEdit}
           handleDelete={handleDelete}
         />
+      </div>
+      <div className="bg-cyan-600 text-white font-medium p-2 rounded-xl border border-cyan-900 hover:border-white white cursor-pointer transition-all   mt-5">
+        <button onClick={handleDeleteAll} className="cursor-pointer px-2">
+          Apagar todos
+        </button>
       </div>
     </div>
   );
