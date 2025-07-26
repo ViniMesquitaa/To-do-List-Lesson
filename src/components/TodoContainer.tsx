@@ -1,6 +1,7 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 import type { ITodo } from "../types/ITodo";
 import TodoForm from "./TodoForm";
+import type { Ref } from "react";
 
 type TodoContainerProps = {
   todos: ITodo[];
@@ -11,6 +12,7 @@ type TodoContainerProps = {
   handleCompleted?: (id: number) => void;
   handleEdit?: (id: number) => void;
   handleDelete?: (id: number) => void;
+  inputRef?: Ref<HTMLInputElement>;
 };
 
 export const TodoContainer = ({
@@ -22,6 +24,7 @@ export const TodoContainer = ({
   handleCompleted,
   handleEdit,
   handleDelete,
+  inputRef,
 }: TodoContainerProps) => {
   return (
     <div className="w-full max-w-md mx-auto p-6 bg-gray-800 rounded-xl shadow-2xl border border-gray-700">
@@ -33,6 +36,7 @@ export const TodoContainer = ({
       </div>
 
       <TodoForm
+        ref={inputRef}
         title={title}
         isEditing={isEditing}
         handleSubmit={handleSubmit}
@@ -151,7 +155,7 @@ export const TodoContainer = ({
                     e.stopPropagation();
                     handleDelete?.(todo.id);
                   }}
-                  className="p-2 text-gray-400 hover:text-rose-400 hover:bg-gray-600 rounded-lg transition- cursor-pointer"
+                  className="p-2 text-gray-400 hover:text-rose-400 hover:bg-gray-600 rounded-lg transition-colors cursor-pointer"
                   title="Excluir"
                 >
                   <FaTrash size={14} />
