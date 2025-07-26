@@ -68,10 +68,13 @@ const TodoPage = () => {
   };
 
   const handleDeleteAll = () => {
-    setTodos([]);
-    localStorage.removeItem("todos");
-    setEditingId(null);
-    setTitle("");
+    if (window.confirm("Deseja apagar tudo?")) {
+      setTodos([]);
+      localStorage.removeItem("todos");
+      setEditingId(null);
+      setTitle("");
+    }
+    return;
   };
 
   const handleEdit = (id: number) => {
@@ -98,9 +101,14 @@ const TodoPage = () => {
       </div>
       <button
         onClick={handleDeleteAll}
-        className="bg-cyan-600 text-white font-medium p-2 rounded-xl border border-cyan-900 hover:border-white transition-all mt-5 px-10 cursor-pointer"
+        className={`bg-cyan-600 text-white font-medium p-2 rounded-xl border border-cyan-900 hover:border-white transition-all mt-5 px-10 ${
+          todos.length === 0
+            ? "opacity-50 cursor-not-allowed"
+            : "cursor-pointer"
+        }`}
+        disabled={todos.length === 0}
       >
-        Apagar todos
+        Deletar Todos
       </button>
     </div>
   );
